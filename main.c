@@ -8,8 +8,24 @@
 
 #include <stdio.h>
 
+typedef struct{
+    
+} question;
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     printf("Hello, World!\n");
+    
+    
     return 0;
 }
+
+
+// Dover
+//  Open
+
+void displayQuestion(question q) {
+    //  Prints question with respective answer
+}
+
+//  Close
