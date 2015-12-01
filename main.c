@@ -15,21 +15,3 @@ int main(int argc, const char * argv[]) {
     
     return 0;
 }
-
-
-
-//  Filip Open
-
-typedef struct{
-    
-} question;
-
-//  Filip Close
-
-
-
-
-//  Alfred Open
-
-
-//  Alfred Close
