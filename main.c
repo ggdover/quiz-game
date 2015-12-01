@@ -8,10 +8,6 @@
 
 #include <stdio.h>
 
-typedef struct{
-    
-} question;
-
 int main(int argc, const char * argv[]) {
     // insert code here...
     printf("Hello, World!\n");
@@ -21,13 +17,19 @@ int main(int argc, const char * argv[]) {
 }
 
 
-// Dover
-//  Open
 
-void displayQuestion(question q) {
-    //  Prints question with respective answer
-}
+//  Filip Open
 
-//  Close
+typedef struct{
+    
+} question;
 
-// Hej hej EDIT: google drive project
+//  Filip Close
+
+
+
+
+//  Alfred Open
+
+
+//  Alfred Close
