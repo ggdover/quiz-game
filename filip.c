@@ -7,19 +7,56 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
 #include "filip.h"
 
 int displayQuestionWithRightAnswer(question q) {
+    
+    srand((int)time(NULL));
     
     clearScreen();
     
     printf("%s\n\n", q.q);
     
-    printf("%s\n%s\n%s\n%s", q.a0, q.a1, q.a2, q.a3);
+    int positions[4];
     
+    for (int i = 0; i < 4; i++) {
+        bool getNewPos;
+        int randPos;
+        
+        do {
+            getNewPos = false;
+            randPos = (rand() % 4)+1;
+            
+            for (int k = 0; k < 4; k++)
+                if (positions[k] == randPos)
+                    getNewPos = true;
+            
+        } while (getNewPos);
+        
+        positions[i] = randPos;
+    }
     
+    char unsorted[4][20];
+    strcpy(unsorted[0], q.a0);
+    strcpy(unsorted[1], q.a1);
+    strcpy(unsorted[2], q.a2);
+    strcpy(unsorted[3], q.a3);
     
-    return 0;
+    char sorted[4][20];
+    
+    for (int i = 0; i < 4; i++)
+        strcpy(sorted[i],unsorted[(positions[i])-1]);
+    
+    for (int i = 0; i < 4; i++) {
+        printf("%d:%s", i, sorted[i]);
+        if (sorted[i] == q.a0)
+            return i;
+    }
+    
+    return 5;
 }
 
 void clearScreen() {
