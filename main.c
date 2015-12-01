@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "filip.h"
 
@@ -14,16 +15,16 @@ int main(int argc, const char * argv[]) {
     
     question quest;
     strcpy(quest.q ,"Vem kan mest?");
-    strcpy(quest.a0 ,"Jag");
-    strcpy(quest.a1 ,"Han");
-    strcpy(quest.a2 ,"Bertil");
-    strcpy(quest.a3 ,"Gertrud");
+    strcpy(quest.a0 ,"Hej");
+    strcpy(quest.a1 ,"Yngve");
+    strcpy(quest.a2 ,"Sofia");
+    strcpy(quest.a3 ,"Gustav");
     
     int ra = displayQuestionWithRightAnswer(quest);
     
     printf("Position of right answer: %d", ra);
     
-    while(1);
+    getchar();
     
     return 0;
     
