@@ -11,6 +11,9 @@
 
 #define SCREEN_HEIGHT 25
 
+typedef int bool;
+enum { false, true};
+
 typedef struct
 {
     char q[40];
@@ -20,6 +23,13 @@ typedef struct
     char a3[20];
     int d;
 } question;
+
+typedef struct {
+
+    int* n;
+    int count;
+} dynArray;
+
 
 //  Prints question to the screen
 int displayQuestionWithRightAnswer(question q);
