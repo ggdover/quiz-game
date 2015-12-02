@@ -49,7 +49,7 @@ int main()
 	
 	getchar();
 }
-//80x25
+
 int pick_question(int n_lines)
 {
 	srand(time(NULL));
