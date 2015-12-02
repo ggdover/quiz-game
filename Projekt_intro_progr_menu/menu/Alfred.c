@@ -5,11 +5,10 @@
 int game_menu();
 int check_answere(int correct_answere, int input);
 int score_system(int QCount, int difficulty);
+void score_print(int score);
 
-
-
-
-int game_menu(){
+int game_menu()
+{
 	char input;
 	clearScreen();
 	printf("Welcome to this game of quiz!\nYou have three options:\nPlay	  Credits	Exit\n");
@@ -47,4 +46,9 @@ int score_system(int QCount, int Difficulty)
 {
 	int score = (QCount * Difficulty) / (QCount - (Difficulty - 0.5));
 	return score;
+}
+
+void score_print(int score)
+{
+	printf("%d", score);
 }
