@@ -24,21 +24,18 @@ int displayQuestionWithRightAnswer(question q) {
     
     int r = rand() % 4;
     
-    char foo[20];
-    strcpy(foo, answers[r]);
+    char tempStr[20];
+    strcpy(tempStr, answers[r]);
     strcpy(answers[r], q.a0);
-    strcpy(answers[0], foo);
+    strcpy(answers[0], tempStr);
     
     printf("%s\n\n", q.q);
     
     for (int i = 0; i < 4; i++)
       printf("%d:%s\n", i+1, answers[i]);
 
-//  retunerar: 0-3
-    return r;
-    
 //  returnerar: 1-4
-//  return r+1;
+    return r+1;
 }
 
 void clearScreen() {
@@ -48,6 +45,8 @@ void clearScreen() {
     }
 }
 
+//      Unique number generator
+//
 //int displayQuestionWithRightAnswer(question q) {
 //    
 //    srand((int)time(NULL));
