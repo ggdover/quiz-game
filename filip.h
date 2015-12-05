@@ -24,15 +24,16 @@ typedef struct
     int d;
 } question;
 
-typedef struct {
-
-    int* n;
-    int count;
-} dynArray;
+typedef struct
+{
+    bool active;
+    int rem_answer;
+    
+} fifityfifty;
 
 
 //  Prints question to the screen
-int displayQuestionWithRightAnswer(question q);
+int displayQuestionWithRightAnswer(question q, fifityfifty ff);
 void clearScreen();
 
 
