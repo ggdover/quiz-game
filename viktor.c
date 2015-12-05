@@ -3,23 +3,9 @@
 #include <string.h>
 #include <time.h>
 
+#include "viktor.h"
 
-typedef struct
-{
-	char q[40];
-	char a0[20];
-	char a1[20];
-	char a2[20];
-	char a3[20];
-	int d;
-}question;
-
-void flush_buffer();
-int pick_question(int n_lines);
-int count_file_lines();
-question *read_from_file();
-
-int main()
+int game_start()
 {
 	question *questions;	
 	questions = read_from_file();
@@ -46,8 +32,7 @@ int main()
 			//rita osv....
 		}
 	}
-	
-	getchar();
+	return EXIT_SUCCESS;
 }
 
 int pick_question(int n_lines)
@@ -96,4 +81,29 @@ int count_file_lines()
 	}
 	fclose(fp);
 	return lines;
+}
+
+char handle_input(char *string)
+{
+	char test, input;
+	int str_length;
+
+	while (string[str_length] != 0x00)
+	{
+		str_length++;
+	}
+	
+	do
+	{
+		input = getchar();
+		fflush(stdin);
+		for(int i = 0; i < str_length; i++)
+		{
+			if(input == string[i])
+				test = string[i];
+		}
+		
+	}while(test != input);
+		
+	return input;
 }
