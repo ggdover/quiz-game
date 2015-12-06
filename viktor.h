@@ -17,7 +17,7 @@ typedef struct
 /*
  * THE CONTAINS THE GAMELOOP
  */
-int game_start();
+void game_start();
 
 /*
  * FILTER INPUT AND ONLY ACCEPT CERTAIN CHARACTERS
@@ -25,12 +25,12 @@ int game_start();
  * The example above will only accept a,b or c as input.
  * If the char is accepted the function will return it.
  */
-char handle_input(char *string)
+char handle_input(char *string);
 
 /*
  * PICK A RANDOM QUESTION FROM THE ARRAY
  */
-int pick_question(int n_lines);
+int pick_question(int n_questions);
 
 /*
  * COUNT FILE LINES

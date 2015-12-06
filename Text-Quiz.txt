@@ -1,0 +1,1 @@
+./Debug/viktor.c.o ./Debug/main.c.o

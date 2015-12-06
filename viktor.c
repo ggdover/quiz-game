@@ -5,41 +5,46 @@
 
 #include "viktor.h"
 
-int game_start()
+void game_start()
 {
+	srand(time(NULL));
 	question *questions;	
 	questions = read_from_file();
 	int n_lines = count_file_lines();
-	int *used_questions = malloc(sizeof(int)*n_lines);
+	int *used_questions = malloc(sizeof(*used_questions));
 	while(1)
 	{
 		for(int i = 0; i < n_lines; i++)
 			used_questions[i] = 0;
 		int q_count = 0;
+		int picked_q;
 		int stage = 1;
 		while(1)
 		{
-			int picked_q = 0;
 			do
 			{
-				int picked_q = pick_question(n_lines);
-			}while((used_questions[picked_q] != 0) && (questions->d != stage));
+				picked_q = pick_question(n_lines);
+				printf("picked_q = %d\n", picked_q);
+			}while((used_questions[picked_q] != 0) || (questions[picked_q].d != stage));
+			used_questions[picked_q] = 1;
 			q_count++;
+			printf("gameloop\n");
 			getchar();
-			
-			questions[picked_q];
+			//questions[picked_q];
 			//flush_buffer(); rensa skiten
 			//rita osv....
+			if(q_count == 5)
+			{
+				q_count = 0;
+				stage++;
+			}
 		}
 	}
-	return EXIT_SUCCESS;
 }
 
-int pick_question(int n_lines)
+int pick_question(int n_questions)
 {
-	srand(time(NULL));
-	
-	return rand()%n_lines;
+	return rand()%n_questions;
 }
 
 question *read_from_file()
@@ -49,7 +54,7 @@ question *read_from_file()
 	FILE *fp;
 	fp = fopen("test.q", "r");
 	int n_lines = count_file_lines();
-	questions = malloc(sizeof(questions)*n_lines + 1);
+	questions = malloc(sizeof(*questions)*n_lines);
 	for(int i = 0; i < n_lines; i++)
 	{
 		fscanf(fp, "%d;%[^\n;];%[^\n;];%[^\n;];%[^\n;];%[^\n;]",
@@ -102,7 +107,8 @@ char handle_input(char *string)
 			if(input == string[i])
 				test = string[i];
 		}
-		
+		if(test != input)
+			printf("Invalid input! Try again: ");
 	}while(test != input);
 		
 	return input;
