@@ -12,54 +12,17 @@
 #include <string.h>
 #include "filip.h"
 
-int displayQuestionWithRightAnswer(question q, fifityfifty ff) {
+int displayQuestion(question q) {
     
     srand((int)time(NULL));
     
-    char **answers;
-    int n_answers;
-    
-    if (ff.active)
-        n_answers = 2;
-    else
-        n_answers = 4;
-    
-    answers = malloc(n_answers * sizeof(char*));
-    for (int i = 0; i < n_answers; i++)
-        answers[i] = malloc(20 * sizeof(char));
-    
+    char answers[4][20];
     strcpy(answers[0], q.a0);
+    strcpy(answers[1], q.a1);
+    strcpy(answers[2], q.a2);
+    strcpy(answers[3], q.a3);
     
-    if (ff.active) {
-        
-        if ((sizeof(answers)/sizeof(answers[0])) != 2)
-            //Throw error
-        
-        switch (ff.rem_answer) {
-            case 0:
-                strcpy(answers[1], q.a1);
-                break;
-            case 1:
-                strcpy(answers[1], q.a2);
-                break;
-            case 2:
-                strcpy(answers[1], q.a3);
-                break;
-            default:
-                //Should never end up here
-                break;
-        }
-    } else {
-        
-        if ((sizeof(answers)/sizeof(answers[0])) != 4)
-            //Throw error
-        
-        strcpy(answers[1], q.a1);
-        strcpy(answers[2], q.a2);
-        strcpy(answers[3], q.a3);
-    }
-    
-    int r = rand() % n_answers;
+    int r = rand() % 4;
     
     char tempStr[20];
     strcpy(tempStr, answers[r]);
@@ -68,10 +31,10 @@ int displayQuestionWithRightAnswer(question q, fifityfifty ff) {
     
     printf("%s\n\n", q.q);
     
-    for (int i = 0; i < n_answers; i++)
+    for (int i = 0; i < 4; i++) {
         printf("%d:%s\n", i+1, answers[i]);
+    }
     
-    //  returnerar: 1-4 eller 1-2
     return r+1;
 }
 
@@ -80,4 +43,81 @@ void clearScreen() {
     for (int i = 0; i < SCREEN_HEIGHT; i++) {
         putchar('\n');
     }
+}
+
+
+//  Funkar ej
+void fiftyfiftyAndPrint(question q, char **answers, char *r_answer) {
+    
+    srand((int)time(NULL));
+    
+    char **new_answers;
+    int r = rand() % 3;
+    
+    new_answers = malloc(4 * sizeof(char*));
+    for (int i = 0; i < 4; i++) {
+        new_answers[i] = malloc(20 * sizeof(char));
+        new_answers[i] = "";
+    }
+    
+    for (int i = 0; i < 4; i++) {
+        printf("%s\n",answers[i]);
+    }
+    
+    for (int i = 0; i < 4; i++) {
+        printf("%s\n",new_answers[i]);
+    }
+    
+    int j = 0;
+    for (int i = 0; i < 4; i++) {
+        if (strcmp(answers[i], r_answer) == 0)
+            strcpy(new_answers[i], answers[i]);
+        else {
+            if (j == r)
+                strcpy(new_answers[i], answers[i]);
+            
+            j++;
+        }
+    }
+    
+    printf("%s", q.q);
+    
+    for (int i = 0; i < 4; i++) {
+        printf("%d:%s", i, new_answers[i]);
+    }
+}
+
+//  Funkar ej
+char **printNewQuestion(question q, int *r_answer_pos) {
+    
+    srand((int)time(NULL));
+    
+    char **answers;
+    
+    answers = malloc(4 * sizeof(char*));
+    for (int i = 0; i < 4; i++) {
+        answers[i] = malloc(20 * sizeof(char));
+    }
+    
+    strcpy(answers[0], q.a0);
+    strcpy(answers[1], q.a1);
+    strcpy(answers[2], q.a2);
+    strcpy(answers[3], q.a3);
+    
+    int r = rand() % 4;
+    
+    char tempStr[20];
+    strcpy(tempStr, answers[r]);
+    strcpy(answers[r], q.a0);
+    strcpy(answers[0], tempStr);
+    
+    printf("%s\n\n", q.q);
+    
+    for (int i = 0; i < 4; i++) {
+        printf("%d:%s\n", i+1, answers[i]);
+    }
+    
+    *r_answer_pos = r+1;
+    
+    return answers;
 }

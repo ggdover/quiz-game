@@ -16,7 +16,7 @@ enum { false, true};
 
 typedef struct
 {
-    char q[40];
+    char q[80];
     char a0[20];
     char a1[20];
     char a2[20];
@@ -24,17 +24,14 @@ typedef struct
     int d;
 } question;
 
-typedef struct
-{
-    bool active;
-    int rem_answer;
-    
-} fifityfifty;
 
-
-//  Prints question to the screen
-int displayQuestionWithRightAnswer(question q, fifityfifty ff);
+int displayQuestion(question q);
 void clearScreen();
 
+
+//  Funkar ej
+void fiftyfiftyAndPrint(question q, char **answers, char *r_answer);
+//  Funkar ej
+char **printNewQuestion(question q, int *r_answer_pos);
 
 #endif /* filip_h */
