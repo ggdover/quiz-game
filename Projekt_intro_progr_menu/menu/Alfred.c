@@ -1,24 +1,30 @@
 #include "Alfred.h"
+#include "viktor.h"
+#include "filip.h"
+#include <stdio.h>
 
-int game_menu()
-{
+int game_menu(void){
 	char input;
 	clearScreen();
-	printf("Welcome to this game of quiz!\nYou have three options:\nPlay	  Credits	Exit\n");
-	scanf("%c", &input);
+	printf("Welcome to this game of quiz!\nYou have three options:\nPlay(p)	  Credits(c)	Exit(e)\n");
+	input = getchar();
+	clean_stdin();
 
 	switch (input){
-	case 'E':
-	case 'e':
-		return 0;
+	case 'P':
+	case 'p':
+		printf("Play\n");		//Funktionsanrop av game
+		return 1;
 		break;
 	case 'C':
 	case 'c':
-		return 1;
-		break;
-	case 'P':
-	case 'p':
+		printf("Credits\n");	//Funktionsanrop av credits
 		return 2;
+		break;
+	case 'E':
+	case 'e':
+		printf("Exit\n");		//Avslutar spelet
+		return 0;
 		break;
 	default:
 		printf("Wrong input try again\n");			//Vid input som inte matchar något av alternativen
@@ -27,9 +33,9 @@ int game_menu()
 	}
 }
 
-int check_answere(int correct_answere, int input)
+int check_answer(char correct_answer, char input)
 {
-	if (input == correct_answere)
+	if (input == correct_answer)
 		return 1;
 	else
 		return 0;
@@ -37,11 +43,11 @@ int check_answere(int correct_answere, int input)
 
 int score_system(int QCount, int Difficulty)
 {
-	int score = (QCount * Difficulty) / (QCount - (Difficulty - 0.5));
+	int score = (QCount * Difficulty);
 	return score;
 }
 
 void score_print(int score)
 {
-	printf("%d", score);
+	printf("Score: %d\n", score);
 }

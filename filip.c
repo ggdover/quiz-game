@@ -17,6 +17,7 @@ char displayQuestion(question q) {
     srand((int)time(NULL));
     
     char answers[4][30];
+
     strcpy(answers[0], q.a0);
     strcpy(answers[1], q.a1);
     strcpy(answers[2], q.a2);
@@ -34,6 +35,7 @@ char displayQuestion(question q) {
     for (int i = 0; i < 4; i++) {
         printf("%d:%s\n", i+1, answers[i]);
     }
+	
     return (r+1) + '0';
 }
 
@@ -55,7 +57,9 @@ void fiftyfiftyAndPrint(question q, char **answers, char *r_answer) {
     
     new_answers = malloc(4 * sizeof(char*));
     for (int i = 0; i < 4; i++) {
+
         new_answers[i] = malloc(30 * sizeof(char));
+
         new_answers[i] = "";
     }
     
@@ -95,6 +99,7 @@ char **printNewQuestion(question q, int *r_answer_pos) {
     
     answers = malloc(4 * sizeof(char*));
     for (int i = 0; i < 4; i++) {
+
         answers[i] = malloc(30 * sizeof(char));
     }
     
@@ -106,6 +111,7 @@ char **printNewQuestion(question q, int *r_answer_pos) {
     int r = rand() % 4;
     
     char tempStr[30];
+
     strcpy(tempStr, answers[r]);
     strcpy(answers[r], q.a0);
     strcpy(answers[0], tempStr);

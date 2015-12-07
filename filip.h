@@ -19,7 +19,6 @@ enum { false, true};
 char displayQuestion(question q);
 void clearScreen(void);
 
-
 //  Funkar ej
 void fiftyfiftyAndPrint(question q, char **answers, char *r_answer);
 //  Funkar ej
