@@ -94,6 +94,10 @@
     <File Name="viktor.c"/>
     <File Name="viktor.h"/>
     <File Name="main.c"/>
+    <File Name="Projekt_intro_progr_menu/menu/Alfred.c"/>
+    <File Name="Projekt_intro_progr_menu/menu/Alfred.h"/>
+    <File Name="filip.c"/>
+    <File Name="filip.h"/>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>

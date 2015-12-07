@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=
-Date                   :=12/06/15
+Date                   :=12/07/15
 CodeLitePath           :="/home/viktor/.codelite"
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/viktor.c$(ObjectSuffix) $(IntermediateDirectory)/main.c$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/viktor.c$(ObjectSuffix) $(IntermediateDirectory)/main.c$(ObjectSuffix) $(IntermediateDirectory)/menu_Alfred.c$(ObjectSuffix) $(IntermediateDirectory)/filip.c$(ObjectSuffix) 
 
 
 
@@ -106,6 +106,22 @@ $(IntermediateDirectory)/main.c$(DependSuffix): main.c
 
 $(IntermediateDirectory)/main.c$(PreprocessSuffix): main.c
 	@$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.c$(PreprocessSuffix) "main.c"
+
+$(IntermediateDirectory)/menu_Alfred.c$(ObjectSuffix): Projekt_intro_progr_menu/menu/Alfred.c $(IntermediateDirectory)/menu_Alfred.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "/home/viktor/Documents/codelite/Text-Quiz/Projekt_intro_progr_menu/menu/Alfred.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/menu_Alfred.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/menu_Alfred.c$(DependSuffix): Projekt_intro_progr_menu/menu/Alfred.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/menu_Alfred.c$(ObjectSuffix) -MF$(IntermediateDirectory)/menu_Alfred.c$(DependSuffix) -MM "Projekt_intro_progr_menu/menu/Alfred.c"
+
+$(IntermediateDirectory)/menu_Alfred.c$(PreprocessSuffix): Projekt_intro_progr_menu/menu/Alfred.c
+	@$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/menu_Alfred.c$(PreprocessSuffix) "Projekt_intro_progr_menu/menu/Alfred.c"
+
+$(IntermediateDirectory)/filip.c$(ObjectSuffix): filip.c $(IntermediateDirectory)/filip.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "/home/viktor/Documents/codelite/Text-Quiz/filip.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/filip.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/filip.c$(DependSuffix): filip.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/filip.c$(ObjectSuffix) -MF$(IntermediateDirectory)/filip.c$(DependSuffix) -MM "filip.c"
+
+$(IntermediateDirectory)/filip.c$(PreprocessSuffix): filip.c
+	@$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/filip.c$(PreprocessSuffix) "filip.c"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

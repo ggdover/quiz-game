@@ -3,6 +3,8 @@
 #include <string.h>
 #include <time.h>
 #include "viktor.h"
+#include "Alfred.h"
+#include "filip.h"
 
 void game_start()
 {
@@ -13,31 +15,70 @@ void game_start()
 	int *used_questions = malloc(sizeof(*used_questions));
 	while(1)
 	{
-		for(int i = 0; i < n_lines; i++)
-			used_questions[i] = 0;
-		int q_count = 0;
-		int picked_q;
-		int stage = 1;
-		while(1)
+		int selection;
+		do
 		{
-			do
+			selection = game_menu();
+		}
+		while(selection == 3);
+		
+		if(selection == 2)
+		{
+			//credits
+		}
+		else if(selection == 1)
+		{
+			for(int i = 0; i < n_lines; i++)
+				used_questions[i] = 0;
+			int q_count = 0;
+			int picked_q;
+			int streak = 0;
+			int level = 1;
+			int score = 0;
+			int lives = 3;
+			while(1)
 			{
-				picked_q = pick_question(n_lines);
-				printf("picked_q = %d\n", picked_q);
-			}while((used_questions[picked_q] != 0) || (questions[picked_q].d != stage));
-			used_questions[picked_q] = 1;
-			q_count++;
-			printf("gameloop\n");
-			getchar();
-			//questions[picked_q];
-			//flush_buffer(); rensa skiten
-			//rita osv....
-			if(q_count == 5)
-			{
-				q_count = 0;
-				stage++;
+				clearScreen();
+				do
+				{
+					picked_q = pick_question(n_lines);
+				}while((used_questions[picked_q] != 0) || (questions[picked_q].d != level));
+				used_questions[picked_q] = 1;
+				q_count++;
+				score_print(score);
+				printf("Lives: %d\n", lives);
+				char c_answer = displayQuestion(questions[picked_q]);
+				char c_input = handle_input("1234e");
+				if(c_input == 'e')
+					return;
+				if(check_answere(c_answer, c_input) == 1)
+				{
+					printf("You were right!");
+					streak++;
+					score = score + score_system(streak, level);
+				}
+				else
+				{
+					lives--;
+					streak = 0;
+				}
+				if(lives == 0)
+				{
+					//do stuff
+					printf("You suck!");
+				}
+				//questions[picked_q];
+				//flush_buffer(); rensa skiten
+				//rita osv....
+				if(q_count == 5)
+				{
+					q_count = 0;
+					level++;
+				}
 			}
 		}
+		else if(selection == 0)
+			return;			
 	}
 }
 
@@ -46,7 +87,7 @@ int pick_question(int n_questions)
 	return rand()%n_questions;
 }
 
-question *read_from_file()
+question *read_from_file(void)
 {
 	question *questions;
 	
@@ -68,7 +109,7 @@ question *read_from_file()
 	return questions;
 }
 
-int count_file_lines()
+int count_file_lines(void)
 {
 	FILE *fp;
 	fp = fopen("test.q", "r");
@@ -90,7 +131,7 @@ int count_file_lines()
 char handle_input(char *string)
 {
 	char test, input;
-	int str_length;
+	int str_length = 0;
 
 	while (string[str_length] != 0x00)
 	{
@@ -100,7 +141,7 @@ char handle_input(char *string)
 	do
 	{
 		input = getchar();
-		fflush(stdin);
+		clean_stdin();
 		for(int i = 0; i < str_length; i++)
 		{
 			if(input == string[i])
@@ -111,4 +152,13 @@ char handle_input(char *string)
 	}while(test != input);
 		
 	return input;
+}
+
+void clean_stdin(void)
+{
+    int c;
+    do
+	{
+        c = getchar();
+    }while (c != '\n' && c != EOF);
 }

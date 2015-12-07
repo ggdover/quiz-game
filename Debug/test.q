@@ -15,8 +15,8 @@
 2;The famous entrepreneur Elon Musk is known for which companies?;Tesla, SpaceEx;Microsoft, Nokia;Ford, GE;Bethesda, Valve
 2;Which chess piece is in the shape of a horse’s head?;Knight;King;Queen;Rook
 2;A Spartan is what type of fruit?;Apple;Orange;Peach;Banana
-2;The Polar Music Prize is an annual award in which country for significant achievements in music?;Sweden;Norway;Island;Finland
-2;Which three elements in the Periodic Table are magnetic?;Iron, Cobalt, Nickel;Cobalt, Nickel, Steel;Cobalt, Iron, Steel; Iron, Volfram, Nickel
+2;The Polar Music Prize is an annual award in which country?;Sweden;Norway;Island;Finland
+2;Which three elements in the Periodic Table are magnetic?;Iron, Cobalt, Nickel;Cobalt, Nickel, Steel;Cobalt, Iron, Steel;Iron, Volfram, Nickel
 2;The Ebro River is in which country?;Spain;France;Germany;Russia
 3;What year was Jönköping university founded?;1977;1984;1932;1958
 3;A left-handed boxer is called a ‘what’…paw?;Southpaw;Eastpaw;Northpaw;Westpaw
@@ -24,19 +24,18 @@
 3;Which make of car has the advertising slogan ‘Zoom, Zoom’?;Mazda;Honda;Saab;Ford
 3;According to the proverb, ‘What’ speaks louder than words?;Actions;Thoughts;Rimes;Money
 3;The volcano Hekla is on which island?;Island;Sweden;China;New Zealand
-3;To end WW2 the US dropped two Abombs on Japan what was the name of the target cities?;Nagasaki, Hiroshima;Tokyo, Nagasaki; Kyoto,Hiroshima;Tokyo, Kyoto
+3;To end WW2 the US dropped two Abombs on Japan, which cities?;Nagasaki, Hiroshima;Tokyo, Nagasaki; Kyoto,Hiroshima;Tokyo, Kyoto
 3;What is the everyday name for ethylene glycol?;Antifreeze;Gasoline;Diesel;Vodka
 3;In cooking, what is calamares?;Squid;Chicken;Cow;Pig
 3;What is the main metal in pewter?;Tin;Steel;Silver;Nickel
 4;‘Roligans’ are well-mannered football fans from which European country?;Denmark;Sweden;Finland;Norway
 4;What are the indigenous people of New Zealand called?;Maori;Aboriginal;Inuit;Navajo
 4;An 18th Century dandy and a type of pasta share which name?;Macaroni;Spaghetti;Gnocchi;Tagliatelle
-4;Strangles is a bacterial infection of the respiratory tract of which animal?;Horse;Cow;Pidgeon
+4;Strangles is a bacterial infection of the respiratory tract of which animal?;Horse;Cow;Pidgeon;Dolphin
 4;On a standard dartboard, what number lies opposite 13?;8;7;9;10
-4;Necromimesis is the feigning of what?;Death;Life;Marriage;Divorce
-4;A morwong is what type of creature?;Fish;BIrd;Insect;Fictional
+4;A morwong is what type of creature?;Fish;Bird;Insect;Fictional
 4;A Gentle Breeze is which number on the Beaufort Scale?;3;4;6;1
-4;How many teaspoons in an Imperial tablespoon?;3:4:2:5
+4;How many teaspoons in an Imperial tablespoon?;3;4;2;5
 4;In the tv series Doctor Who, what does the ‘T’ stand for in TARDIS?;Time;Tar;Tuesday;Target
 5;What are transport proteins commonly referred to as?;Transmembrane pump;Cell;Saliva;Transport onion
 5;Which watch brand produces the iconic submariner watch?;Rolex;IWC;Omega;Panerai
