@@ -20,8 +20,11 @@ int main(){
     strcpy(q.a2, "Karl");
     strcpy(q.a3, "Erik");
     
-    int ra = displayQuestion(q);
-    printf("Rätt svar pos:%d", ra);
+    char ra1 = displayQuestion(q, false);
+    printf("Rätt svar pos:%c\n\n", ra1);
+    
+    char ra2 = displayQuestion(q, true);
+    printf("Rätt svar pos:%c\n\n", ra2);
     
     return 0;
 }
