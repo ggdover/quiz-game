@@ -1,1 +1,0 @@
-./Debug/viktor.c.o ./Debug/main.c.o ./Debug/menu_Alfred.c.o ./Debug/filip.c.o
