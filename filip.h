@@ -24,14 +24,7 @@ typedef struct
     int d;
 } question;
 
-
-int displayQuestion(question q);
+char displayQuestion(question q, bool ff_active);
 void clearScreen();
-
-
-//  Funkar ej
-void fiftyfiftyAndPrint(question q, char **answers, char *r_answer);
-//  Funkar ej
-char **printNewQuestion(question q, int *r_answer_pos);
 
 #endif /* filip_h */
