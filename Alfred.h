@@ -2,8 +2,7 @@
 #define ALFRED_H_
 
 int game_menu();
-int check_answere(int correct_answere, int input);
+int check_answer(char correct_answer, char input);
 int score_system(int QCount, int difficulty);
-void score_print(int score);
-
+void print_player_stats(int score, int lives, int level, int q_number, int streak);
 #endif
