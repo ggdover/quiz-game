@@ -1,16 +1,23 @@
-//
-//  filip.c
-//  textQuiz
-//
-//  Created by Filip Doversten on 01/12/15.
-//  Copyright © 2015 Filip Doversten. All rights reserved.
-//
-
+/*
+ * Information about sourcedevelopment
+ * -----------------------------------
+ * Initial creator: Filip Doversten
+ * Date created: 30/11 2015
+ * Last updated by: Viktor Siljehov
+ * Date for update: 8/12 2015
+ *
+ */
+ 
+ /*
+  * File:
+  * -------------------------
+  * This file contains methods: displayQuestion(), and clearScreen().
+  * 
+  */
+  
 #ifdef _WIN32
-#include <Windows.h>
-#else
-#include <unistd.h>
-#include <term.h>
+//#include <Windows.h>
+#define _CRT_SECURE_NO_WARNINGS
 #endif
 
 #include <stdio.h>
@@ -18,6 +25,13 @@
 #include <time.h>
 #include <string.h>
 #include "filip.h"
+
+// Function: displayQuestion
+// Usage: char right_answer = displayQuestion(question);
+//--------------------------------------------
+// Description: prints a given question with answer options, 
+// with a random position for the right answer. 
+// Returns a value representing the position of the right answer.
 
 char displayQuestion(question q) {
     
@@ -40,16 +54,22 @@ char displayQuestion(question q) {
     printf("%s\n\n", q.q);
     
     for (int i = 0; i < 4; i++) {
-        printf("%d:%s\n", i+1, answers[i]);
+        printf("%d: %s\n", i+1, answers[i]);
     }
 	
     return (r+1) + '0';
 }
 
+// Function: clearScreen
+// Usage: clearScreen();
+//--------------------------------------
+// Description: Clears the screen from content.
+// Compatible with both UNIX and Win platforms.
+
 void clearScreen(void) {
 	#ifdef _WIN32
 	system("cls");
 	#else
-	system("clear");
+	printf("\033[2J\033[1;1H");
 	#endif
 }
