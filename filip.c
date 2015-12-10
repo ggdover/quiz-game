@@ -11,7 +11,7 @@
  /*
   * File:
   * -------------------------
-  * This file contains methods: displayQuestion(), and clearScreen().
+  * This file contains methods: displayQuestion, clearScreen, displayAnswers, shuffleArray and fiftyfifty.
   * 
   */
   
@@ -58,6 +58,70 @@ char displayQuestion(question q) {
     }
 	
     return (r+1) + '0';
+}
+
+// Function: displayAnswers
+// Usage: char displayAnswers(char answers[][30], char* r_answer);
+//----------------------------------------
+// Description: prints the answers in the order which is the given from the array passed on as a argument.
+// Second argument takes a string representing the right answer. The method returns a value relative to the position of the right answer.
+
+char displayAnswers(char answers[][30], char* r_answer) {
+    
+    int pos_r_answer = 0;
+    
+    for (int i = 0; i < 4; i++) {
+        if (strcmp(answers[i], r_answer) == 0)
+            pos_r_answer = i+1;
+        
+        printf("%d:%s\n", i+1, answers[i]);
+    }
+    
+    return (pos_r_answer) + '0';
+}
+
+// Function: shuffleArray
+// Usage: shuffleArray(char answers[][30], char* r_answer);
+//-----------------------------------------
+// Description: First argument takes a array with answer options, where the method will swap the position of the right answer and a second answer in the array. The second argument tells the function what represents the right answer.
+
+void shuffleArray(char answers[][30], char* r_answer) {
+    
+    int r = rand() % 4;
+    int r_answer_origin = 0;
+    
+    for (int i = 0; i < 4; i++)
+        if (strcmp(answers[i], r_answer) == 0)
+            r_answer_origin = i;
+    
+    char tempStr[30];
+    strcpy(tempStr, answers[r]);
+    strcpy(answers[r], r_answer);
+    strcpy(answers[r_answer_origin], tempStr);
+}
+
+// Function: fiftyFifty
+// Usage: fiftyfifty(char answers[][30], char* r_answer);
+//-------------------------------------------
+// Description: First argument takes a array with answer options. The function will empty the string ("") on two elements. Any of these two elements can't be the element holding the right answer. The second argument gives us the right answer which we use to find the element representing the right answer.
+
+void fiftyfifty(char answers[][30], char* r_answer) {
+    
+    int pos_r_answer = 0;
+    
+    for (int i = 0; i < 4; i++) {
+        if (strcmp(answers[i], r_answer) == 0)
+            pos_r_answer = i;
+    }
+    
+    int r = rand() % 3;
+    
+    if (r == pos_r_answer)
+        r++;
+    
+    for (int i = 0; i < 4; i++)
+        if (i != r && i != pos_r_answer)
+            strcpy(answers[i], "");
 }
 
 // Function: clearScreen

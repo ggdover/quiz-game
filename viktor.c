@@ -153,13 +153,33 @@ void game_start(void)
 				printf("You can exit to the menu at any time by entering (e)!\n\n");
 				print_player_stats(stats);
 							
-				/*Display question and get the correct answer*/
-				char c_answer = displayQuestion(questions[stats.picked_q]);
-				printf("\nSelection: ");
-
-				/*Get correct input*/
-				char c_input = handle_input("1234Ee");
-				
+                /*Display question and get the correct answer*/
+                question q = questions[stats.picked_q];
+                char answers[4][30];
+                strcpy(answers[0], q.a0);
+                strcpy(answers[1], q.a1);
+                strcpy(answers[2], q.a2);
+                strcpy(answers[3], q.a3);
+                
+                /* Display question */
+                printf("%s\n\n",q.q);
+                
+                /* Shuffles and displays answer options */
+                shuffleArray(answers, q.a0);
+                char c_answer = displayAnswers(answers, q.a0);
+                
+                printf("\nSelection: ");
+                
+                /*Get correct input*/
+                char c_input = handle_input("1234ef");
+                
+                /*If fiftyfifty*/
+                if (c_input == 'f') {
+                    fiftyfifty(answers, q.a0);
+                    clearScreen();
+                    c_answer = displayAnswers(answers, q.a0);
+                }
+            
 				/*If exit*/
 				if(c_input == 'E' || c_input == 'e')
 					break;
