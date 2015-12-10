@@ -74,7 +74,7 @@ char display_answers(char answers[][30], char* r_answer) {
         if (strcmp(answers[i], r_answer) == 0)
             pos_r_answer = i+1;
 
-        printf("%d:%s\n", i+1, answers[i]);
+        printf("%d: %s\n", i+1, answers[i]);
     }
 
     return (pos_r_answer) + '0';
