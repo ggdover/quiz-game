@@ -238,7 +238,7 @@ void game_start(void)
  * ------------------------------------------------------
  * Description: Print game information
  */
-void print_game_info()
+void print_game_info(void)
 {
 	printf("You can exit to the menu at any time by entering (e)!\n"
 			"You can enter (f) to use 50/50, but you will at least lose half the streak.\n\n");

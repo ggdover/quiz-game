@@ -133,10 +133,7 @@ void fifty_fifty(char answers[][30], char* r_answer) {
 void clear_screen(void) {
 	#ifdef _WIN32
 	system("cls");
-	#else
-    //int n;
-    //for (n = 0; n < 10; n++)
-    //  printf( "\n\n\n\n\n\n\n\n\n\n" );
-	printf("\033[2J");
+    #else
+    system("clear");
 	#endif
 }

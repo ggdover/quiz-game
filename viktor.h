@@ -79,7 +79,7 @@ void game_start(void);
  * ------------------------------------------------------
  * Description: Print game information
  */
-void print_game_info();
+void print_game_info(void);
 
 /*
  * Function: name_input

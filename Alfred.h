@@ -14,6 +14,7 @@
   * This file contains methods: game_menu(), check_answer(), score_system(), print_player_stats().
   * 
   */
+  
 #ifndef ALFRED_H_
 #define ALFRED_H_
 
@@ -54,4 +55,5 @@ int score_system(int streak, int difficulty);
  * The function that prints the players current stats.
  */
 void print_player_stats(game_stats stats);
+
 #endif
