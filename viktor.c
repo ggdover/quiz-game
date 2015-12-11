@@ -493,7 +493,7 @@ int count_file_lines(FILE *fp)
  */
 char handle_input(char *string)
 {
-	char test = NULL, input;
+	char test = '0', input;
 	int str_length = 0;
 
 	while (string[str_length] != 0x00)
